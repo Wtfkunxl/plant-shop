@@ -1,27 +1,24 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addItem } from '../store/cartSlice.js';
 import { products } from '../data/products.js';
+import ProductCard from '../components/ProductCard.jsx';
+import React from 'react';
 
-
-function ProductCard({ product }) {
-  const dispatch = useDispatch();
-  const cartItems = useSelector(state => state.cart.items);
-  const isAdded = cartItems.find(item => item.id === product.id);
+function ProductListingPage() {
+  const categories = [...new Set(products.map(p => p.category))];
 
   return (
-    <div style={{ border: '1px solid #ccc', padding: '10px', margin: '10px', width: '200px' }}>
-      <img src={product.image} alt={product.name} style={{ width: '100%' }} />
-      <h3>{product.name}</h3>
-      <p>${product.price}</p>
-      <button
-        onClick={() => dispatch(addItem(product))}
-        disabled={isAdded}
-      >
-        {isAdded ? 'Added' : 'Add to Cart'}
-      </button>
+    <div style={{ padding: '20px' }}>
+      {categories.map(category => (
+        <div key={category}>
+          <h2>{category}</h2>
+          <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+            {products.filter(p => p.category === category).map(product => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
 
-export default ProductCard;
+export default ProductListingPage;
