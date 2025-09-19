@@ -19,4 +19,4 @@ A simple React + Redux app that lists six houseplants grouped into categories an
 3. Open http://localhost:3000
 
 ## GitHub
-Repo public URL: <https://github.com/Wtfkunxl/plant-shop>
+Repo public URL: <[paste your repo url her](https://github.com/Wtfkunxl/plant-shop)e>
