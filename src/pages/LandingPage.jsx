@@ -1,30 +1,25 @@
-// src/pages/LandingPage.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function LandingPage() {
+function LandingPage() {
   return (
-    <main style={{
-      minHeight: 'calc(100vh - 64px)',
+    <div style={{
+      background: 'url(/images/landing-bg.jpg) no-repeat center center / cover',
+      height: '100vh',
       display: 'flex',
-      alignItems: 'center',
+      flexDirection: 'column',
       justifyContent: 'center',
-      backgroundImage: 'url("/images/landing-bg.jpg")',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center'
+      alignItems: 'center',
+      color: 'white',
+      textAlign: 'center'
     }}>
-      <section style={{ background: 'rgba(255,255,255,0.9)', padding: 24, borderRadius: 8, maxWidth: 700 }}>
-        <h1>GreenSprout — Houseplants for Modern Homes</h1>
-        <p>
-          GreenSprout is a curated marketplace offering beautiful, easy-care houseplants for every space.
-          We make it simple to find the right plant and bring nature into your home.
-        </p>
-        <Link to="/products">
-          <button style={{ marginTop: 12, padding: '10px 18px', cursor: 'pointer' }}>
-            Get Started
-          </button>
-        </Link>
-      </section>
-    </main>
+      <h1>Welcome to Plant Shop</h1>
+      <p>Your one-stop store for beautiful indoor plants.</p>
+      <Link to="/products">
+        <button style={{ padding: '10px 20px', fontSize: '16px' }}>Get Started</button>
+      </Link>
+    </div>
   );
 }
+
+export default LandingPage;

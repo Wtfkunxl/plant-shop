@@ -1,24 +1,24 @@
-// src/pages/ProductListPage.jsx
 import React from 'react';
-import products from '../data/products';
-import ProductCard from '../components/ProductCard';
+import { products } from '../data/products.js';
+import ProductCard from '../components/ProductCard.jsx';
 
-export default function ProductListPage() {
-  // group categories
+function ProductListingPage() {
   const categories = [...new Set(products.map(p => p.category))];
+
   return (
-    <div style={{ padding: 24 }}>
-      <h2>Products</h2>
-      {categories.map(cat => (
-        <section key={cat} style={{ marginBottom: 24 }}>
-          <h3>{cat}</h3>
-          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            {products.filter(p => p.category === cat).map(p => (
-              <ProductCard key={p.id} product={p} />
+    <div style={{ padding: '20px' }}>
+      {categories.map(category => (
+        <div key={category}>
+          <h2>{category}</h2>
+          <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+            {products.filter(p => p.category === category).map(product => (
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
-        </section>
+        </div>
       ))}
     </div>
   );
 }
+
+export default ProductListingPage;
