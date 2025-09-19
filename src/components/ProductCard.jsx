@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../store/cartSlice.js';
+import { products } from '../data/products.js';
+
 
 function ProductCard({ product }) {
   const dispatch = useDispatch();
